@@ -27,7 +27,8 @@ class SettingsPage extends StatefulWidget implements PageShape {
   final icon = Icon(Icons.settings);
 
   @override
-  final appBarActions = [ScanButton()];
+  // final appBarActions = [ScanButton()];
+  final appBarActions = [];
 
   @override
   State<SettingsPage> createState() => _SettingsState();
@@ -568,12 +569,12 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                     child: Text(_fingerprint),
                   ),
                   leading: Icon(Icons.fingerprint)),
-            SettingsTile(
-              title: Text(translate("Privacy Statement")),
-              onPressed: (context) =>
-                  launchUrlString('https://rustdesk.com/privacy.html'),
-              leading: Icon(Icons.privacy_tip),
-            )
+            // SettingsTile(
+            //   title: Text(translate("Privacy Statement")),
+            //   onPressed: (context) =>
+            //       launchUrlString('https://rustdesk.com/privacy.html'),
+            //   leading: Icon(Icons.privacy_tip),
+            // )
           ],
         ),
       ],
