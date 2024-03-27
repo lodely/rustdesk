@@ -1451,7 +1451,7 @@ class RustdeskImpl {
   }
 
   bool isDisableAb({dynamic hint}) {
-    return false;
+    return true;
   }
 
   bool isDisableAccount({dynamic hint}) {

@@ -25,8 +25,8 @@ class PeerTabModel with ChangeNotifier {
     'Recent sessions',
     'Favorites',
     if (!isWeb) 'Discovered',
-    // if (!(bind.isDisableAb() || bind.isDisableAccount())) 'Address book',
-    // if (!bind.isDisableAccount()) 'Group',
+    if (!(bind.isDisableAb() || bind.isDisableAccount())) 'Address book',
+    if (!bind.isDisableAccount()) 'Group',
   ];
   final List<IconData> icons = [
     Icons.access_time_filled,
