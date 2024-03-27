@@ -141,7 +141,7 @@ class HomePageState extends State<HomePage> {
         ],
       );
     }
-    return Text("RustDesk");
+    return Text("myRustDesk");
   }
 }
 
