@@ -451,23 +451,23 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
     return SettingsList(
       sections: [
         SettingsSection(
-          title: Text(translate('Account')),
-          tiles: [
-            SettingsTile(
-              title: Obx(() => Text(gFFI.userModel.userName.value.isEmpty
-                  ? translate('Login')
-                  : '${translate('Logout')} (${gFFI.userModel.userName.value})')),
-              leading: Icon(Icons.person),
-              onPressed: (context) {
-                if (gFFI.userModel.userName.value.isEmpty) {
-                  loginDialog();
-                } else {
-                  logOutConfirmDialog();
-                }
-              },
-            ),
-          ],
-        ),
+        //   title: Text(translate('Account')),
+        //   tiles: [
+        //     SettingsTile(
+        //       title: Obx(() => Text(gFFI.userModel.userName.value.isEmpty
+        //           ? translate('Login')
+        //           : '${translate('Logout')} (${gFFI.userModel.userName.value})')),
+        //       leading: Icon(Icons.person),
+        //       onPressed: (context) {
+        //         if (gFFI.userModel.userName.value.isEmpty) {
+        //           loginDialog();
+        //         } else {
+        //           logOutConfirmDialog();
+        //         }
+        //       },
+        //     ),
+        //   ],
+        // ),
         SettingsSection(title: Text(translate("Settings")), tiles: [
           SettingsTile(
               title: Text(translate('ID/Relay Server')),
@@ -544,13 +544,13 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                   }
                 },
                 title: Text(translate("Version: ") + version),
-                value: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Text('myrustdesk.com',
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                      )),
-                ),
+                // value: Padding(
+                //   padding: EdgeInsets.symmetric(vertical: 8),
+                //   child: Text('myrustdesk.com',
+                //       style: TextStyle(
+                //         decoration: TextDecoration.underline,
+                //       )),
+                // ),
                 leading: Icon(Icons.info)),
             SettingsTile(
                 title: Text(translate("Build Date")),
