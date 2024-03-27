@@ -450,7 +450,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
 
     return SettingsList(
       sections: [
-        SettingsSection(
+        // SettingsSection(
         //   title: Text(translate('Account')),
         //   tiles: [
         //     SettingsTile(
