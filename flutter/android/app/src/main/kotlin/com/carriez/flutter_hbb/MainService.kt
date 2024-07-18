@@ -1,4 +1,4 @@
-package com.carriez.flutter_hbb1
+package com.carriez.flutter_mtconnect
 
 /**
  * Capture screen,get video and audio,send to rust.
@@ -44,7 +44,7 @@ import java.nio.ByteBuffer
 import kotlin.math.max
 import kotlin.math.min
 
-const val DEFAULT_NOTIFY_TITLE = "myRustDesk"
+const val DEFAULT_NOTIFY_TITLE = "曼拓互联"
 const val DEFAULT_NOTIFY_TEXT = "Service is running"
 const val DEFAULT_NOTIFY_ID = 1
 const val NOTIFY_ID_OFFSET = 100

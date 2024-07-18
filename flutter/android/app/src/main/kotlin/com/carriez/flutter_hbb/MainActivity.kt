@@ -1,4 +1,4 @@
-package com.carriez.flutter_hbb1
+package com.carriez.flutter_mtconnect
 
 /**
  * Handle events from flutter

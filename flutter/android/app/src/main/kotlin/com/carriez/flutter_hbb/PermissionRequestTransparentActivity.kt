@@ -1,4 +1,4 @@
-package com.carriez.flutter_hbb1
+package com.carriez.flutter_mtconnect
 
 import android.app.Activity
 import android.content.Intent
