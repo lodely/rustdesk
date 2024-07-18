@@ -1,4 +1,4 @@
-package com.carriez.flutter_mtconnect
+package com.carriez.flutter_MtLink
 
 import android.app.Activity
 import android.content.Intent
