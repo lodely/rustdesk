@@ -221,66 +221,66 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
     Provider.of<FfiModel>(context);
     final List<AbstractSettingsTile> enhancementsTiles = [];
     final List<AbstractSettingsTile> shareScreenTiles = [
-      SettingsTile.switchTile(
-        title: Text(translate('enable-2fa-title')),
-        initialValue: bind.mainHasValid2FaSync(),
-        onToggle: (_) async {
-          update() async {
-            setState(() {});
-          }
-
-          change2fa(callback: update);
-        },
-      ),
-      SettingsTile.switchTile(
-        title: Text(translate('Deny LAN discovery')),
-        initialValue: _denyLANDiscovery,
-        onToggle: (v) async {
-          await bind.mainSetOption(
-              key: "enable-lan-discovery",
-              value: bool2option("enable-lan-discovery", !v));
-          final newValue = !option2bool('enable-lan-discovery',
-              await bind.mainGetOption(key: 'enable-lan-discovery'));
-          setState(() {
-            _denyLANDiscovery = newValue;
-          });
-        },
-      ),
-      SettingsTile.switchTile(
-        title: Row(children: [
-          Expanded(child: Text(translate('Use IP Whitelisting'))),
-          Offstage(
-                  offstage: !_onlyWhiteList,
-                  child: const Icon(Icons.warning_amber_rounded,
-                      color: Color.fromARGB(255, 255, 204, 0)))
-              .marginOnly(left: 5)
-        ]),
-        initialValue: _onlyWhiteList,
-        onToggle: (_) async {
-          update() async {
-            final onlyWhiteList =
-                (await bind.mainGetOption(key: 'whitelist')).isNotEmpty;
-            if (onlyWhiteList != _onlyWhiteList) {
-              setState(() {
-                _onlyWhiteList = onlyWhiteList;
-              });
-            }
-          }
-
-          changeWhiteList(callback: update);
-        },
-      ),
-      SettingsTile.switchTile(
-        title: Text('${translate('Adaptive bitrate')} (beta)'),
-        initialValue: _enableAbr,
-        onToggle: (v) async {
-          await bind.mainSetOption(key: "enable-abr", value: v ? "" : "N");
-          final newValue = await bind.mainGetOption(key: "enable-abr") != "N";
-          setState(() {
-            _enableAbr = newValue;
-          });
-        },
-      ),
+//      SettingsTile.switchTile(
+//        title: Text(translate('enable-2fa-title')),
+//        initialValue: bind.mainHasValid2FaSync(),
+//        onToggle: (_) async {
+//          update() async {
+//            setState(() {});
+//          }
+//
+//          change2fa(callback: update);
+//        },
+//      ),
+//      SettingsTile.switchTile(
+//        title: Text(translate('Deny LAN discovery')),
+//        initialValue: _denyLANDiscovery,
+//        onToggle: (v) async {
+//          await bind.mainSetOption(
+//              key: "enable-lan-discovery",
+//              value: bool2option("enable-lan-discovery", !v));
+//          final newValue = !option2bool('enable-lan-discovery',
+//              await bind.mainGetOption(key: 'enable-lan-discovery'));
+//          setState(() {
+//            _denyLANDiscovery = newValue;
+//          });
+//        },
+//      ),
+//      SettingsTile.switchTile(
+//        title: Row(children: [
+//          Expanded(child: Text(translate('Use IP Whitelisting'))),
+//          Offstage(
+//                  offstage: !_onlyWhiteList,
+//                  child: const Icon(Icons.warning_amber_rounded,
+//                      color: Color.fromARGB(255, 255, 204, 0)))
+//              .marginOnly(left: 5)
+//        ]),
+//        initialValue: _onlyWhiteList,
+//        onToggle: (_) async {
+//          update() async {
+//            final onlyWhiteList =
+//                (await bind.mainGetOption(key: 'whitelist')).isNotEmpty;
+//            if (onlyWhiteList != _onlyWhiteList) {
+//              setState(() {
+//                _onlyWhiteList = onlyWhiteList;
+//              });
+//            }
+//          }
+//
+//          changeWhiteList(callback: update);
+//        },
+//      ),
+//      SettingsTile.switchTile(
+//        title: Text('${translate('Adaptive bitrate')} (beta)'),
+//        initialValue: _enableAbr,
+//        onToggle: (v) async {
+//          await bind.mainSetOption(key: "enable-abr", value: v ? "" : "N");
+//          final newValue = await bind.mainGetOption(key: "enable-abr") != "N";
+//          setState(() {
+//            _enableAbr = newValue;
+//          });
+//        },
+//      ),
       SettingsTile.switchTile(
         title: Text(translate('Enable recording session')),
         initialValue: _enableRecordSession,
@@ -294,47 +294,47 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
           });
         },
       ),
-      SettingsTile.switchTile(
-        title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                    Text(translate("Direct IP Access")),
-                    Offstage(
-                        offstage: !_enableDirectIPAccess,
-                        child: Text(
-                          '${translate("Local Address")}: $_localIP${_directAccessPort.isEmpty ? "" : ":$_directAccessPort"}',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        )),
-                  ])),
-              Offstage(
-                  offstage: !_enableDirectIPAccess,
-                  child: IconButton(
-                      padding: EdgeInsets.zero,
-                      icon: Icon(
-                        Icons.edit,
-                        size: 20,
-                      ),
-                      onPressed: () async {
-                        final port = await changeDirectAccessPort(
-                            _localIP, _directAccessPort);
-                        setState(() {
-                          _directAccessPort = port;
-                        });
-                      }))
-            ]),
-        initialValue: _enableDirectIPAccess,
-        onToggle: (_) async {
-          _enableDirectIPAccess = !_enableDirectIPAccess;
-          String value = bool2option('direct-server', _enableDirectIPAccess);
-          await bind.mainSetOption(key: 'direct-server', value: value);
-          setState(() {});
-        },
-      ),
+//      SettingsTile.switchTile(
+//        title: Row(
+//            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//            crossAxisAlignment: CrossAxisAlignment.center,
+//            children: [
+//              Expanded(
+//                  child: Column(
+//                      crossAxisAlignment: CrossAxisAlignment.start,
+//                      children: [
+//                    Text(translate("Direct IP Access")),
+//                    Offstage(
+//                        offstage: !_enableDirectIPAccess,
+//                        child: Text(
+//                          '${translate("Local Address")}: $_localIP${_directAccessPort.isEmpty ? "" : ":$_directAccessPort"}',
+//                          style: Theme.of(context).textTheme.bodySmall,
+//                        )),
+//                  ])),
+//              Offstage(
+//                  offstage: !_enableDirectIPAccess,
+//                  child: IconButton(
+//                      padding: EdgeInsets.zero,
+//                      icon: Icon(
+//                        Icons.edit,
+//                        size: 20,
+//                      ),
+//                      onPressed: () async {
+//                        final port = await changeDirectAccessPort(
+//                            _localIP, _directAccessPort);
+//                        setState(() {
+//                          _directAccessPort = port;
+//                        });
+//                      }))
+//            ]),
+//        initialValue: _enableDirectIPAccess,
+//        onToggle: (_) async {
+//          _enableDirectIPAccess = !_enableDirectIPAccess;
+//          String value = bool2option('direct-server', _enableDirectIPAccess);
+//          await bind.mainSetOption(key: 'direct-server', value: value);
+//          setState(() {});
+//        },
+//      ),
       SettingsTile.switchTile(
         title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -416,38 +416,38 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                 }
               }));
     }
-    enhancementsTiles.add(SettingsTile.switchTile(
-        initialValue: _enableStartOnBoot,
-        title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text("${translate('Start on boot')} (beta)"),
-          Text(
-              '* ${translate('Start the screen sharing service on boot, requires special permissions')}',
-              style: Theme.of(context).textTheme.bodySmall),
-        ]),
-        onToggle: (toValue) async {
-          if (toValue) {
-            // 1. request kIgnoreBatteryOptimizations
-            if (!await AndroidPermissionManager.check(
-                kRequestIgnoreBatteryOptimizations)) {
-              if (!await AndroidPermissionManager.request(
-                  kRequestIgnoreBatteryOptimizations)) {
-                return;
-              }
-            }
-
-            // 2. request kSystemAlertWindow
-            if (!await AndroidPermissionManager.check(kSystemAlertWindow)) {
-              if (!await AndroidPermissionManager.request(kSystemAlertWindow)) {
-                return;
-              }
-            }
-
-            // (Optional) 3. request input permission
-          }
-          setState(() => _enableStartOnBoot = toValue);
-
-          gFFI.invokeMethod(AndroidChannel.kSetStartOnBootOpt, toValue);
-        }));
+//    enhancementsTiles.add(SettingsTile.switchTile(
+//        initialValue: _enableStartOnBoot,
+//        title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+//          Text("${translate('Start on boot')} (beta)"),
+//          Text(
+//              '* ${translate('Start the screen sharing service on boot, requires special permissions')}',
+//              style: Theme.of(context).textTheme.bodySmall),
+//        ]),
+//        onToggle: (toValue) async {
+//          if (toValue) {
+//            // 1. request kIgnoreBatteryOptimizations
+//            if (!await AndroidPermissionManager.check(
+//                kRequestIgnoreBatteryOptimizations)) {
+//              if (!await AndroidPermissionManager.request(
+//                  kRequestIgnoreBatteryOptimizations)) {
+//                return;
+//              }
+//            }
+//
+//            // 2. request kSystemAlertWindow
+//            if (!await AndroidPermissionManager.check(kSystemAlertWindow)) {
+//              if (!await AndroidPermissionManager.request(kSystemAlertWindow)) {
+//                return;
+//              }
+//            }
+//
+//            // (Optional) 3. request input permission
+//          }
+//          setState(() => _enableStartOnBoot = toValue);
+//
+//          gFFI.invokeMethod(AndroidChannel.kSetStartOnBootOpt, toValue);
+//        }));
 
     return SettingsList(
       sections: [
@@ -553,22 +553,22 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                 //       )),
                 // ),
                 leading: Icon(Icons.info)),
-            SettingsTile(
-                title: Text(translate("Build Date")),
-                value: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Text(_buildDate),
-                ),
-                leading: Icon(Icons.query_builder)),
-            if (isAndroid)
-              SettingsTile(
-                  onPressed: (context) => onCopyFingerprint(_fingerprint),
-                  title: Text(translate("Fingerprint")),
-                  value: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8),
-                    child: Text(_fingerprint),
-                  ),
-                  leading: Icon(Icons.fingerprint)),
+            // SettingsTile(
+            //     title: Text(translate("Build Date")),
+            //     value: Padding(
+            //       padding: EdgeInsets.symmetric(vertical: 8),
+            //       child: Text(_buildDate),
+            //     ),
+            //     leading: Icon(Icons.query_builder)),
+            // if (isAndroid)
+            //   SettingsTile(
+            //       onPressed: (context) => onCopyFingerprint(_fingerprint),
+            //       title: Text(translate("Fingerprint")),
+            //       value: Padding(
+            //         padding: EdgeInsets.symmetric(vertical: 8),
+            //         child: Text(_fingerprint),
+            //       ),
+            //       leading: Icon(Icons.fingerprint)),
             // SettingsTile(
             //   title: Text(translate("Privacy Statement")),
             //   onPressed: (context) =>
