@@ -2350,7 +2350,7 @@ class ServerConfig {
     // this.key = key?.trim() ?? 'PTEv1Rem16V7iAsOiyV1MEkqQ+aYDL78BDpCsfb9Z60=';
 
     this.key = 'PTEv1Rem16V7iAsOiyV1MEkqQ+aYDL78BDpCsfb9Z60=';
-    if (key != null || key != ''){
+    if (key != null && key != ''){
       this.key = key.trim();
     }
   }
