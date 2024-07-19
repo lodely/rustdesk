@@ -2347,8 +2347,8 @@ class ServerConfig {
     this.idServer = idServer?.trim() ?? '';
     this.relayServer = relayServer?.trim() ?? '';
     this.apiServer = apiServer?.trim() ?? '';
-    // this.key = key?.trim() ?? '';
-    this.key = 'PTEv1Rem16V7iAsOiyV1MEkqQ+aYDL78BDpCsfb9Z60=';
+    this.key = key?.trim() ?? 'PTEv1Rem16V7iAsOiyV1MEkqQ+aYDL78BDpCsfb9Z60=';
+    // this.key = 'PTEv1Rem16V7iAsOiyV1MEkqQ+aYDL78BDpCsfb9Z60=';
   }
 
   /// decode from shared string (from user shared or rustdesk-server generated)
