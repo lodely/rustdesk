@@ -335,48 +335,48 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
 //          setState(() {});
 //        },
 //      ),
-      SettingsTile.switchTile(
-        title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                    Text(translate("auto_disconnect_option_tip")),
-                    Offstage(
-                        offstage: !_allowAutoDisconnect,
-                        child: Text(
-                          '${_autoDisconnectTimeout.isEmpty ? '10' : _autoDisconnectTimeout} min',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        )),
-                  ])),
-              Offstage(
-                  offstage: !_allowAutoDisconnect,
-                  child: IconButton(
-                      padding: EdgeInsets.zero,
-                      icon: Icon(
-                        Icons.edit,
-                        size: 20,
-                      ),
-                      onPressed: () async {
-                        final timeout = await changeAutoDisconnectTimeout(
-                            _autoDisconnectTimeout);
-                        setState(() {
-                          _autoDisconnectTimeout = timeout;
-                        });
-                      }))
-            ]),
-        initialValue: _allowAutoDisconnect,
-        onToggle: (_) async {
-          _allowAutoDisconnect = !_allowAutoDisconnect;
-          String value =
-              bool2option('allow-auto-disconnect', _allowAutoDisconnect);
-          await bind.mainSetOption(key: 'allow-auto-disconnect', value: value);
-          setState(() {});
-        },
-      )
+//      SettingsTile.switchTile(
+//        title: Row(
+//            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//            crossAxisAlignment: CrossAxisAlignment.center,
+//            children: [
+//              Expanded(
+//                  child: Column(
+//                      crossAxisAlignment: CrossAxisAlignment.start,
+//                      children: [
+//                    Text(translate("auto_disconnect_option_tip")),
+//                    Offstage(
+//                        offstage: !_allowAutoDisconnect,
+//                        child: Text(
+//                          '${_autoDisconnectTimeout.isEmpty ? '10' : _autoDisconnectTimeout} min',
+//                          style: Theme.of(context).textTheme.bodySmall,
+//                        )),
+//                  ])),
+//              Offstage(
+//                  offstage: !_allowAutoDisconnect,
+//                  child: IconButton(
+//                      padding: EdgeInsets.zero,
+//                      icon: Icon(
+//                        Icons.edit,
+//                        size: 20,
+//                      ),
+//                      onPressed: () async {
+//                        final timeout = await changeAutoDisconnectTimeout(
+//                            _autoDisconnectTimeout);
+//                        setState(() {
+//                          _autoDisconnectTimeout = timeout;
+//                        });
+//                      }))
+//            ]),
+//        initialValue: _allowAutoDisconnect,
+//        onToggle: (_) async {
+//          _allowAutoDisconnect = !_allowAutoDisconnect;
+//          String value =
+//              bool2option('allow-auto-disconnect', _allowAutoDisconnect);
+//          await bind.mainSetOption(key: 'allow-auto-disconnect', value: value);
+//          setState(() {});
+//        },
+//      )
     ];
     if (_hasIgnoreBattery) {
       enhancementsTiles.insert(
@@ -476,60 +476,60 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
               onPressed: (context) {
                 showServerSettings(gFFI.dialogManager);
               }),
-          SettingsTile(
-              title: Text(translate('Language')),
-              leading: Icon(Icons.translate),
-              onPressed: (context) {
-                showLanguageSettings(gFFI.dialogManager);
-              }),
-          SettingsTile(
-            title: Text(translate(
-                Theme.of(context).brightness == Brightness.light
-                    ? 'Dark Theme'
-                    : 'Light Theme')),
-            leading: Icon(Theme.of(context).brightness == Brightness.light
-                ? Icons.dark_mode
-                : Icons.light_mode),
-            onPressed: (context) {
-              showThemeSettings(gFFI.dialogManager);
-            },
-          )
+//          SettingsTile(
+//              title: Text(translate('Language')),
+//              leading: Icon(Icons.translate),
+//              onPressed: (context) {
+//                showLanguageSettings(gFFI.dialogManager);
+//              }),
+//          SettingsTile(
+//            title: Text(translate(
+//                Theme.of(context).brightness == Brightness.light
+//                    ? 'Dark Theme'
+//                    : 'Light Theme')),
+//            leading: Icon(Theme.of(context).brightness == Brightness.light
+//                ? Icons.dark_mode
+//                : Icons.light_mode),
+//            onPressed: (context) {
+//              showThemeSettings(gFFI.dialogManager);
+//            },
+//          )
         ]),
-        if (isAndroid)
-          SettingsSection(
-            title: Text(translate("Recording")),
-            tiles: [
-              SettingsTile.switchTile(
-                title:
-                    Text(translate('Automatically record incoming sessions')),
-                leading: Icon(Icons.videocam),
-                description: FutureBuilder(
-                    builder: (ctx, data) => Offstage(
-                        offstage: !data.hasData,
-                        child: Text("${translate("Directory")}: ${data.data}")),
-                    future: bind.mainDefaultVideoSaveDirectory()),
-                initialValue: _autoRecordIncomingSession,
-                onToggle: (v) async {
-                  await bind.mainSetOption(
-                      key: "allow-auto-record-incoming",
-                      value: bool2option("allow-auto-record-incoming", v));
-                  final newValue = option2bool(
-                      'allow-auto-record-incoming',
-                      await bind.mainGetOption(
-                          key: 'allow-auto-record-incoming'));
-                  setState(() {
-                    _autoRecordIncomingSession = newValue;
-                  });
-                },
-              ),
-            ],
-          ),
+//        if (isAndroid)
+//          SettingsSection(
+//            title: Text(translate("Recording")),
+//            tiles: [
+//              SettingsTile.switchTile(
+//                title:
+//                    Text(translate('Automatically record incoming sessions')),
+//                leading: Icon(Icons.videocam),
+//                description: FutureBuilder(
+//                    builder: (ctx, data) => Offstage(
+//                        offstage: !data.hasData,
+//                        child: Text("${translate("Directory")}: ${data.data}")),
+//                    future: bind.mainDefaultVideoSaveDirectory()),
+//                initialValue: _autoRecordIncomingSession,
+//                onToggle: (v) async {
+//                  await bind.mainSetOption(
+//                      key: "allow-auto-record-incoming",
+//                      value: bool2option("allow-auto-record-incoming", v));
+//                  final newValue = option2bool(
+//                      'allow-auto-record-incoming',
+//                      await bind.mainGetOption(
+//                          key: 'allow-auto-record-incoming'));
+//                  setState(() {
+//                    _autoRecordIncomingSession = newValue;
+//                  });
+//                },
+//              ),
+//            ],
+//          ),
         if (isAndroid)
           SettingsSection(
             title: Text(translate("Share Screen")),
             tiles: shareScreenTiles,
           ),
-        defaultDisplaySection(),
+//        defaultDisplaySection(),
         if (isAndroid)
           SettingsSection(
             title: Text(translate("Enhancements")),
@@ -584,7 +584,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
   Future<bool> canStartOnBoot() async {
     // start on boot depends on ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS and SYSTEM_ALERT_WINDOW
     if (_hasIgnoreBattery && !_ignoreBatteryOpt) {
-      return false;
+      return true;
     }
     if (!await AndroidPermissionManager.check(kSystemAlertWindow)) {
       return false;
