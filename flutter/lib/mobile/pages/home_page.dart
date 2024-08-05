@@ -142,7 +142,7 @@ class HomePageState extends State<HomePage> {
         ],
       );
     }
-    return Text("灵境");
+    return Text("灵镜");
   }
 }
 

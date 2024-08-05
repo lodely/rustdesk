@@ -16,7 +16,7 @@
 
     <application
         android:icon="@mipmap/ic_launcher"
-        android:label="灵境"
+        android:label="灵镜"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true">
