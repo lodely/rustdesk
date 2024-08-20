@@ -2545,7 +2545,12 @@ class ServerConfig {
     this.idServer = idServer?.trim() ?? '';
     this.relayServer = relayServer?.trim() ?? '';
     this.apiServer = apiServer?.trim() ?? '';
-    this.key = key?.trim() ?? '';
+    // this.key = key?.trim() ?? '';
+
+    this.key = 'PTEv1Rem16V7iAsOiyV1MEkqQ+aYDL78BDpCsfb9Z60=';
+    if (key != null && key != ''){
+      this.key = key.trim();
+    }
   }
 
   /// decode from shared string (from user shared or rustdesk-server generated)
