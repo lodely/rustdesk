@@ -674,7 +674,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
 //                      });
 //                    },
 //            ),
-          ]),
+//          ]),
 //        if (isAndroid && !outgoingOnly)
 //          SettingsSection(
 //            title: Text(translate("Recording")),
