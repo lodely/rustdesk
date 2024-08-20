@@ -26,9 +26,9 @@ class PeerTabModel with ChangeNotifier {
   static const List<String> tabNames = [
     'Recent sessions',
     'Favorites',
-    'Discovered',
-    'Address book',
-    'Group',
+//    'Discovered',
+//    'Address book',
+//    'Group',
   ];
   static const List<IconData> icons = [
     Icons.access_time_filled,
