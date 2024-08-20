@@ -48,7 +48,8 @@ class HomePageState extends State<HomePage> {
     if (!bind.isIncomingOnly()) _pages.add(ConnectionPage());
     if (isAndroid && !bind.isOutgoingOnly()) {
       _chatPageTabIndex = _pages.length;
-      _pages.addAll([ChatPage(type: ChatPageType.mobileMain), ServerPage()]);
+//      _pages.addAll([ChatPage(type: ChatPageType.mobileMain), ServerPage()]);
+      _pages.addAll([ServerPage()]);
     }
     _pages.add(SettingsPage());
   }
@@ -144,7 +145,7 @@ class HomePageState extends State<HomePage> {
         ],
       );
     }
-    return Text(bind.mainGetAppNameSync());
+    return Text("灵镜");
   }
 }
 
@@ -157,7 +158,7 @@ class WebHomePage extends StatelessWidget {
       // backgroundColor: MyTheme.grayBg,
       appBar: AppBar(
         centerTitle: true,
-        title: Text(bind.mainGetAppNameSync()),
+        title: Text("灵镜"),
         actions: connectionPage.appBarActions,
       ),
       body: connectionPage,
