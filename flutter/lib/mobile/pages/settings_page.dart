@@ -658,22 +658,22 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
 //            },
 //          )
         ]),
-        if (isAndroid)
-          SettingsSection(title: Text(translate('Hardware Codec')), tiles: [
-            SettingsTile.switchTile(
-              title: Text(translate('Enable hardware codec')),
-              initialValue: _enableHardwareCodec,
-              onToggle: isOptionFixed(kOptionEnableHwcodec)
-                  ? null
-                  : (v) async {
-                      await mainSetBoolOption(kOptionEnableHwcodec, v);
-                      final newValue =
-                          await mainGetBoolOption(kOptionEnableHwcodec);
-                      setState(() {
-                        _enableHardwareCodec = newValue;
-                      });
-                    },
-            ),
+//        if (isAndroid)
+//          SettingsSection(title: Text(translate('Hardware Codec')), tiles: [
+//            SettingsTile.switchTile(
+//              title: Text(translate('Enable hardware codec')),
+//              initialValue: _enableHardwareCodec,
+//              onToggle: isOptionFixed(kOptionEnableHwcodec)
+//                  ? null
+//                  : (v) async {
+//                      await mainSetBoolOption(kOptionEnableHwcodec, v);
+//                      final newValue =
+//                          await mainGetBoolOption(kOptionEnableHwcodec);
+//                      setState(() {
+//                        _enableHardwareCodec = newValue;
+//                      });
+//                    },
+//            ),
           ]),
 //        if (isAndroid && !outgoingOnly)
 //          SettingsSection(
