@@ -29,7 +29,8 @@ class SettingsPage extends StatefulWidget implements PageShape {
   final icon = Icon(Icons.settings);
 
   @override
-  final appBarActions = bind.isDisableSettings() ? [] : [ScanButton()];
+//  final appBarActions = bind.isDisableSettings() ? [] : [ScanButton()];
+  final appBarActions = [];
 
   @override
   State<SettingsPage> createState() => _SettingsState();
