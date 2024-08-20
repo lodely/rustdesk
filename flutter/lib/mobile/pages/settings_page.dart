@@ -382,100 +382,100 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                 });
               },
       ),
-      SettingsTile.switchTile(
-        title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                    Text(translate("Direct IP Access")),
-                    Offstage(
-                        offstage: !_enableDirectIPAccess,
-                        child: Text(
-                          '${translate("Local Address")}: $_localIP${_directAccessPort.isEmpty ? "" : ":$_directAccessPort"}',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        )),
-                  ])),
-              Offstage(
-                  offstage: !_enableDirectIPAccess,
-                  child: IconButton(
-                      padding: EdgeInsets.zero,
-                      icon: Icon(
-                        Icons.edit,
-                        size: 20,
-                      ),
-                      onPressed: isOptionFixed(kOptionDirectAccessPort)
-                          ? null
-                          : () async {
-                              final port = await changeDirectAccessPort(
-                                  _localIP, _directAccessPort);
-                              setState(() {
-                                _directAccessPort = port;
-                              });
-                            }))
-            ]),
-        initialValue: _enableDirectIPAccess,
-        onToggle: isOptionFixed(kOptionDirectServer)
-            ? null
-            : (_) async {
-                _enableDirectIPAccess = !_enableDirectIPAccess;
-                String value =
-                    bool2option(kOptionDirectServer, _enableDirectIPAccess);
-                await bind.mainSetOption(
-                    key: kOptionDirectServer, value: value);
-                setState(() {});
-              },
-      ),
-      SettingsTile.switchTile(
-        title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                    Text(translate("auto_disconnect_option_tip")),
-                    Offstage(
-                        offstage: !_allowAutoDisconnect,
-                        child: Text(
-                          '${_autoDisconnectTimeout.isEmpty ? '10' : _autoDisconnectTimeout} min',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        )),
-                  ])),
-              Offstage(
-                  offstage: !_allowAutoDisconnect,
-                  child: IconButton(
-                      padding: EdgeInsets.zero,
-                      icon: Icon(
-                        Icons.edit,
-                        size: 20,
-                      ),
-                      onPressed: isOptionFixed(kOptionAutoDisconnectTimeout)
-                          ? null
-                          : () async {
-                              final timeout = await changeAutoDisconnectTimeout(
-                                  _autoDisconnectTimeout);
-                              setState(() {
-                                _autoDisconnectTimeout = timeout;
-                              });
-                            }))
-            ]),
-        initialValue: _allowAutoDisconnect,
-        onToggle: isOptionFixed(kOptionAllowAutoDisconnect)
-            ? null
-            : (_) async {
-                _allowAutoDisconnect = !_allowAutoDisconnect;
-                String value = bool2option(
-                    kOptionAllowAutoDisconnect, _allowAutoDisconnect);
-                await bind.mainSetOption(
-                    key: kOptionAllowAutoDisconnect, value: value);
-                setState(() {});
-              },
-      )
+//      SettingsTile.switchTile(
+//        title: Row(
+//            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//            crossAxisAlignment: CrossAxisAlignment.center,
+//            children: [
+//              Expanded(
+//                  child: Column(
+//                      crossAxisAlignment: CrossAxisAlignment.start,
+//                      children: [
+//                    Text(translate("Direct IP Access")),
+//                    Offstage(
+//                        offstage: !_enableDirectIPAccess,
+//                        child: Text(
+                          //'${translate("Local Address")}: $_localIP${_directAccessPort.isEmpty ? "" : ":$_directAccessPort"}',
+//                          style: Theme.of(context).textTheme.bodySmall,
+//                        )),
+//                  ])),
+//              Offstage(
+//                  offstage: !_enableDirectIPAccess,
+//                  child: IconButton(
+//                      padding: EdgeInsets.zero,
+//                      icon: Icon(
+//                        Icons.edit,
+//                        size: 20,
+//                      ),
+//                      onPressed: isOptionFixed(kOptionDirectAccessPort)
+//                          ? null
+//                          : () async {
+//                              final port = await changeDirectAccessPort(
+//                                  _localIP, _directAccessPort);
+//                              setState(() {
+//                                _directAccessPort = port;
+//                              });
+//                            }))
+//            ]),
+//        initialValue: _enableDirectIPAccess,
+//        onToggle: isOptionFixed(kOptionDirectServer)
+//            ? null
+//            : (_) async {
+//                _enableDirectIPAccess = !_enableDirectIPAccess;
+//                String value =
+//                    bool2option(kOptionDirectServer, _enableDirectIPAccess);
+//                await bind.mainSetOption(
+//                    key: kOptionDirectServer, value: value);
+//                setState(() {});
+//              },
+//      ),
+//      SettingsTile.switchTile(
+//        title: Row(
+//            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//            crossAxisAlignment: CrossAxisAlignment.center,
+//            children: [
+//              Expanded(
+//                  child: Column(
+//                      crossAxisAlignment: CrossAxisAlignment.start,
+//                      children: [
+//                    Text(translate("auto_disconnect_option_tip")),
+//                    Offstage(
+//                        offstage: !_allowAutoDisconnect,
+//                        child: Text(
+//                          '${_autoDisconnectTimeout.isEmpty ? '10' : _autoDisconnectTimeout} min',
+//                          style: Theme.of(context).textTheme.bodySmall,
+//                        )),
+//                  ])),
+//              Offstage(
+//                  offstage: !_allowAutoDisconnect,
+//                  child: IconButton(
+//                      padding: EdgeInsets.zero,
+//                      icon: Icon(
+//                        Icons.edit,
+//                        size: 20,
+//                      ),
+//                      onPressed: isOptionFixed(kOptionAutoDisconnectTimeout)
+//                          ? null
+//                          : () async {
+//                              final timeout = await changeAutoDisconnectTimeout(
+//                                  _autoDisconnectTimeout);
+//                              setState(() {
+//                                _autoDisconnectTimeout = timeout;
+//                              });
+//                            }))
+//            ]),
+//        initialValue: _allowAutoDisconnect,
+//        onToggle: isOptionFixed(kOptionAllowAutoDisconnect)
+//            ? null
+//            : (_) async {
+//                _allowAutoDisconnect = !_allowAutoDisconnect;
+//                String value = bool2option(
+//                    kOptionAllowAutoDisconnect, _allowAutoDisconnect);
+//                await bind.mainSetOption(
+//                    key: kOptionAllowAutoDisconnect, value: value);
+//                setState(() {});
+//              },
+//      )
     ];
     if (_hasIgnoreBattery) {
       enhancementsTiles.insert(
@@ -515,38 +515,38 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                 }
               }));
     }
-    enhancementsTiles.add(SettingsTile.switchTile(
-        initialValue: _enableStartOnBoot,
-        title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text("${translate('Start on boot')} (beta)"),
-          Text(
-              '* ${translate('Start the screen sharing service on boot, requires special permissions')}',
-              style: Theme.of(context).textTheme.bodySmall),
-        ]),
-        onToggle: (toValue) async {
-          if (toValue) {
-            // 1. request kIgnoreBatteryOptimizations
-            if (!await AndroidPermissionManager.check(
-                kRequestIgnoreBatteryOptimizations)) {
-              if (!await AndroidPermissionManager.request(
-                  kRequestIgnoreBatteryOptimizations)) {
-                return;
-              }
-            }
-
-            // 2. request kSystemAlertWindow
-            if (!await AndroidPermissionManager.check(kSystemAlertWindow)) {
-              if (!await AndroidPermissionManager.request(kSystemAlertWindow)) {
-                return;
-              }
-            }
-
-            // (Optional) 3. request input permission
-          }
-          setState(() => _enableStartOnBoot = toValue);
-
-          gFFI.invokeMethod(AndroidChannel.kSetStartOnBootOpt, toValue);
-        }));
+//    enhancementsTiles.add(SettingsTile.switchTile(
+//        initialValue: _enableStartOnBoot,
+//        title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+//          Text("${translate('Start on boot')} (beta)"),
+//          Text(
+//              '* ${translate('Start the screen sharing service on boot, requires special permissions')}',
+//              style: Theme.of(context).textTheme.bodySmall),
+//        ]),
+//        onToggle: (toValue) async {
+//          if (toValue) {
+//            // 1. request kIgnoreBatteryOptimizations
+//            if (!await AndroidPermissionManager.check(
+//                kRequestIgnoreBatteryOptimizations)) {
+//              if (!await AndroidPermissionManager.request(
+//                  kRequestIgnoreBatteryOptimizations)) {
+//                return;
+//              }
+//            }
+//
+//            // 2. request kSystemAlertWindow
+//            if (!await AndroidPermissionManager.check(kSystemAlertWindow)) {
+//              if (!await AndroidPermissionManager.request(kSystemAlertWindow)) {
+//                return;
+//              }
+//            }
+//
+//            // (Optional) 3. request input permission
+//          }
+//          setState(() => _enableStartOnBoot = toValue);
+//
+//          gFFI.invokeMethod(AndroidChannel.kSetStartOnBootOpt, toValue);
+//        }));
 
     onFloatingWindowChanged(bool toValue) async {
       if (toValue) {

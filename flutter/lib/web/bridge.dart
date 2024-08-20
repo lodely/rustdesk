@@ -1470,7 +1470,7 @@ class RustdeskImpl {
   }
 
   bool isDisableAccount({dynamic hint}) {
-    return false;
+    return true;
   }
 
   bool isDisableInstallation({dynamic hint}) {
