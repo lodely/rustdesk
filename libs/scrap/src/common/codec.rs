@@ -806,12 +806,13 @@ impl Decoder {
     fn preference(id: Option<&str>) -> (PreferCodec, Chroma) {
         let id = id.unwrap_or_default();
         if id.is_empty() {
-            return (PreferCodec::Auto, Chroma::I420);
+            return (PreferCodec::AV1, Chroma::I420);
         }
         let options = PeerConfig::load(id).options;
-        let codec = options
-            .get("codec-preference")
-            .map_or("".to_owned(), |c| c.to_owned());
+//        let codec = options
+//            .get("codec-preference")
+//            .map_or("".to_owned(), |c| c.to_owned());
+        let code = "av1";
         let codec = if codec == "vp8" {
             PreferCodec::VP8
         } else if codec == "vp9" {
