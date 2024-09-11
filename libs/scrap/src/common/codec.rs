@@ -816,12 +816,12 @@ impl Decoder {
             PreferCodec::VP8
         } else if codec == "vp9" {
             PreferCodec::VP9
-        } else if codec == "av1" {
-            PreferCodec::AV1
         } else if codec == "h264" {
             PreferCodec::H264
         } else if codec == "h265" {
             PreferCodec::H265
+        } else if codec == "av1" {
+            PreferCodec::AV1
         } else {
             PreferCodec::Auto
         };
