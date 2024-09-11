@@ -812,7 +812,7 @@ impl Decoder {
 //        let codec = options
 //            .get("codec-preference")
 //            .map_or("".to_owned(), |c| c.to_owned());
-        let code = "av1";
+        let codec = "av1";
         let codec = if codec == "vp8" {
             PreferCodec::VP8
         } else if codec == "vp9" {
