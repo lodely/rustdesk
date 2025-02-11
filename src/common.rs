@@ -715,7 +715,7 @@ pub fn hostname() -> String {
         name
     }
     #[cfg(any(target_os = "android", target_os = "ios"))]
-    return "testset123"; // DEVICE_NAME.lock().unwrap().clone();
+    return "testtset123".to_string(); // DEVICE_NAME.lock().unwrap().clone();
 }
 
 #[inline]
@@ -758,7 +758,7 @@ pub fn get_sysinfo() -> serde_json::Value {
     });
     #[cfg(not(any(target_os = "android", target_os = "ios")))]
     {
-        let username = "test1111"; //crate::platform::get_active_username();
+        let username = "test1111".to_string(); //crate::platform::get_active_username();
         if !username.is_empty() && (!cfg!(windows) || username != "SYSTEM") {
             out["username"] = json!(username);
         }
